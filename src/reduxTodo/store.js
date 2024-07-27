@@ -11,7 +11,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import todoReducer from './todoSlice'
-
+import filterReducer from './filterSlice'
 
 
 const persistConfig = {
@@ -24,6 +24,7 @@ const persistedReducer = persistReducer(persistConfig, todoReducer)
 export const store = configureStore({
   reducer: {
     todos: persistedReducer,
+    filter: filterReducer, 
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
